@@ -18,20 +18,20 @@ public class Application {
     public static void main(String[] args) {
         // 返回IOC容器
         ConfigurableApplicationContext run = SpringApplication.run(Application.class, args);
-//        String[] beanDefinitionNames = run.getBeanDefinitionNames();
-//        for(String i : beanDefinitionNames) {
-//            System.out.println(i);
-//        }
-//        // 在容器中注册的组件默认就是单实例的
-//        // 组件依赖问题
-//        User bean = run.getBean("User",User.class);
-//        System.out.println(bean.getPet() == run.getBean("pet",Pet.class));
-//
-//        // 从容器中获取组件
-//        System.out.println("======");
-//        String[] beanNamesForType = run.getBeanNamesForType(User.class);
-//        for( String i : beanNamesForType)
-//            System.out.println(i);
+        String[] beanDefinitionNames = run.getBeanDefinitionNames();
+        for(String i : beanDefinitionNames) {
+            System.out.println(i);
+        }
+        // 在容器中注册的组件默认就是单实例的
+        // 组件依赖问题
+        User bean = run.getBean("User",User.class);
+        System.out.println(bean.getPet() == run.getBean("pet",Pet.class));
+
+        // 从容器中获取组件
+        System.out.println("======");
+        String[] beanNamesForType = run.getBeanNamesForType(User.class);
+        for( String i : beanNamesForType)
+            System.out.println(i);
 
         boolean tom = run.containsBean("User");
         System.out.println(tom);
